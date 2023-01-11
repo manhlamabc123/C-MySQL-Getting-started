@@ -1,5 +1,8 @@
-main:
-	gcc -o main main.c -lmysqlclient
+main: mysql.o
+	gcc -o main main.c mysql.o -lmysqlclient
+
+mysql.o:
+	gcc -c mysql/mysql.c
 
 clean:
-	rm -rf main
+	rm -f *.o *~ main
